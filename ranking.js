@@ -5,7 +5,7 @@ var cheerio = require('cheerio');
 var exports = module.exports = {};
 var rankings = new Array(12);
 
-exports.getRankings = function () {
+exports.getRankings = function (cb) {
     url = 'http://www.ufc.com/rankings';
     request(url, function (error, response, html) {
         if (!error) {
@@ -37,6 +37,7 @@ exports.getRankings = function () {
 
                     rankings[i] = { weightClass: weight, fighter: fighters };
                 });
+                cb(rankings);
             });
         }
     })
