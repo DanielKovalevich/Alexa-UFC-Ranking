@@ -35,7 +35,7 @@ exports.getRankings = function (cb) {
                         fighters[j + 1] = fighter;
                     });
 
-                    rankings[i] = { weightClass: weight, fighter: fighters };
+                    rankings[i] = { weightClass: weight.toLowerCase(), fighter: fighters };
                 });
                 cb(rankings);
             });
